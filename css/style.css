@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;600;800;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Prompt', sans-serif;
+}
+
+:root{
+    --dark:#070707;
+    --sizeindex: calc(1vw + 1vh);
+    --transition: .75s cubic-bezier(.2, .6, .0, 1);
+}
+
+body, html{
+width: 100%;
+height: 100%;
+color: #fff;
+overflow: hidden;
+background-color: var(--dark);
+line-height: 1.8;
+font-size: calc(var(--sizeindex) * .8);
+}
+
+
+.slider {
+height: 100%;
+transform: rotate(15deg);
+overflow: visible;
+top: 10vh;
+}
+
+.slider_wrapper {
+    transition: var(--transition)!important;
+    will-change: transform;
+}
+
+.slider_item {
+   max-height: 75vh;
+   overflow: hidden;
+   cursor: pointer;
+   transition: transform var(--transition), box-shadow var(--transition) ;
+}
+.slider_img {
+width: 300%;
+height: 100%;
+background-size: cover;
+position: absolute;
+left: -100%;
+transition: var(--transition)!important;
+will-change: transform;
+}
+
+.slider_bg{
+    z-index: 0;
+    transform: rotate(-20deg)!important;
+    top: -90vh;
+    left: -10vh;
+    opacity: .15;
+    filter: saturate(10) blur(120px);
+}
+
+.slider_bg .slider_item{
+    max-height: 100vh;
+
+}
+
+.slider_item.opened{
+    z-index: 2;
+    transform: rotate(-15deg) scale(1.40);
+    box-shadow: rgb(0 0 0 / .75) 0 0 0 10000px;
+
+}
+
+.description{
+    position: absolute;
+    font-size: calc(var(--sizeindex) * .8);
+    top: 20vh;
+    left: 8vw;
+    max-width: 24vw;
+    
+}
+
+.logo{
+    font-size: calc(var(--sizeindex) * 3.6) ;
+    font-weight: 800;
+    display: inline-block;
+    background: linear-gradient(45deg,#383838,#ffffff,#232323);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: opacity var(--transition) transform var(--transition);
+}
+
+.description p{
+    padding-top:55vh;
+    font-size: calc(var(--sizeindex) *.8) ;
+    display: inline-block;
+}
+
+
+
+
+
+.logo.hidden{
+    opacity: 0;
+    transform: translateY(5vh);
+    transition: opacity var(--transition) transform var(--transition);
+    transition-duration:1s;
+}
